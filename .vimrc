@@ -1,4 +1,6 @@
+" ---------------------------------------------------------------------------
 colorscheme ir_black
+
 set nocompatible    " use vim defaults
 set ls=2            " allways show status line
 set tabstop=2       " numbers of spaces of tab character
@@ -11,8 +13,6 @@ set number          " show line numbers
 set ignorecase      " ignore case when searching 
 set title           " show title in console title bar
 set ttyfast         " smoother changes
-set modeline        " last lines in document sets vim mode
-set modelines=3     " number lines checked for modelines
 set autoindent      " always set autoindenting on
 set smartindent     " smart indent
 set cindent         " cindent
@@ -28,6 +28,17 @@ set background=dark        " adapt colors for background
 " space = pagedown, - = pageup
 noremap <Space> <PageDown>
 noremap - <PageUp>
+
+" ---------------------------------------------------------------------------
+" modelines:
+" rather preposterously, modelines in files can be abused to execute
+" arbitrary code: see http://www.guninski.com/vim1.html for details.
+" the securemodelines vim plugin limits the options settable in a
+" modeline to a more reasonable subset; see 
+" http://www.vim.org/scripts/script.php?script_id=1876
+set modelines                    = 0  " disable normal modelines
+let g:secure_modelines_verbose   = 1  " make securemodelines complain
+let g:secure_modelines_modelines = 5  " 5 available modelines
 
 " Auto/Omnicompletion for various programming languages
 autocmd FileType python set omnifunc=pythoncomplete#Complete
