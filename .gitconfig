@@ -1,0 +1,31 @@
+[user]
+	name = Sam Quigley
+	email = sq@wesabe.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+  interactive = auto
+  ui = auto
+[alias]
+	wip = commit -a -m 'WIP'
+	uncommit = reset --soft HEAD^
+	cav = commit -a -v
+	c = commit -v
+	st = status
+	head = diff HEAD^ HEAD
+	nuke = reset --hard HEAD
+	st = status
+	ci = commit
+	co = checkout
+[merge]
+	tool = vimdiff
+[core]
+	excludesfile = ~/.gitignore
+  editor = vi
+[branch]
+	autosetupmerge = true
+[diff]
+  mnemonicprefix = true
+[diff "ruby"]
+	funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
