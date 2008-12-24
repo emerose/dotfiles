@@ -119,6 +119,7 @@ Tlist_Set_App()	taglist.txt	/*Tlist_Set_App()*
 Tlist_Update_File_Tags()	taglist.txt	/*Tlist_Update_File_Tags()*
 basic-snippet	snippets_emu.txt	/*basic-snippet*
 creating-snippets	snippets_emu.txt	/*creating-snippets*
+ft-gitcommit-plugin	ft-gitcommit-plugin.txt	/*ft-gitcommit-plugin*
 named-tags	snippets_emu.txt	/*named-tags*
 snip-advanced-tag-commands	snippets_emu.txt	/*snip-advanced-tag-commands*
 snip-buffer-specific	snippets_emu.txt	/*snip-buffer-specific*
