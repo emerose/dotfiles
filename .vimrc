@@ -66,6 +66,7 @@ noremap -       <PageUp>           " -=pageup
 " modeline to a more reasonable subset; see 
 " http://www.vim.org/scripts/script.php?script_id=1876
 set modelines=0                    " disable normal modelines
+set nomodeline                     " no, really.
 let g:secure_modelines_verbose=1   " make securemodelines complain
 let g:secure_modelines_modelines=5 " 5 available modelines
 
