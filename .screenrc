@@ -1,0 +1,50 @@
+# .screenrc
+#
+
+# restore window after full-screen commands
+altscreen on
+
+# quiet!
+startup_message off
+
+# don't quit if i disconnect
+autodetach on
+
+# watch for activity
+defmonitor on
+
+# and inactivity
+defsilence on
+
+# mention when activity is seen
+activity "Activity in %t (%n%f) [%c]^G"
+
+# mention when a bell rings in a background window
+bell "** [[bell: %t (%n%f)]]  **^G"
+
+# fake a visual bell
+vbell on
+
+# message to display when the visual bell rings
+vbell_msg "** [[bell]] **^G"
+
+# leave messages around for a little bit, but not too long
+msgwait 3
+
+# don't block programs if my terminal stops responding
+nonblock on
+
+# mildly amusing?
+nethack on
+
+# control-\
+escape ^\\\
+
+# UTF8
+defutf8 on
+
+# lots o scrollback
+defscrollback 10000
+
+hardstatus alwayslastline "%{= B}[ %{G}$LOGNAME @ %H %{B}]%{-} %=%{y}%-Lw%{= r}%n%f* %t%?(%u)%?%{-}%+Lw%= %{B}[ %{G}%l %{B}]%{-}"
+
