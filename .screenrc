@@ -1,6 +1,9 @@
 # .screenrc
 #
 
+# use ZSH as the default shell, no matter what the OS thinks.
+defshell -zsh
+
 # restore window after full-screen commands
 altscreen on
 
@@ -56,4 +59,3 @@ bind 0 select 10
 
 # make 1 open a new screen.  (not entirely sure why this is necessary...)
 bind c screen 1
-
