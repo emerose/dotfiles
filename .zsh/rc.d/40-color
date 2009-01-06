@@ -1,0 +1,21 @@
+# configuration for colors and such
+
+zmodload zsh/terminfo
+autoload colors
+colors 
+
+export CLICOLOR="true"
+
+# run the dircolors executable if it exists
+if [[ -x =dircolors ]] ; then
+	eval `dircolors -b`
+	export ZLS_COLORS=$LS_COLORS
+fi
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+
+# vim:set filetype=zsh:

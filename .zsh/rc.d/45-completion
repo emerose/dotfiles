@@ -1,0 +1,66 @@
+# configuration for completion stuff
+# see zcompsys(1) for details.
+#
+zmodload zsh/zutil    # includes the zstyle command, in case it's not already loaded
+zmodload zsh/complist # pretty completion listings
+
+# which completion functions to use:
+# - _expand      -- shell-expand things before performing completion
+# - _complete    -- normal completion behavior
+# - _ignored     -- add back any ignored-patterns and try completion again
+# - _approximate -- if all else fails, try fuzzy-matching
+# - _list        -- don't insert matches until 2nd completion attempt
+#
+zstyle ':completion:*' completer _expand _complete _ignored _approximate _list
+
+# allow up to 1/3 of the typed characters to be corrected by the fuzzy matcher
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)' 
+
+# various general options:
+#
+zstyle ':completion:*' use-cache on            # enable caching of completion results
+zstyle ':completion:*' cache-path ~/.zsh/cache # where to cache said results
+zstyle ':completion:*' verbose true            # make completion more verbose
+zstyle ':completion:*' add-space true          # add a space after files (/ after dirs)
+zstyle ':completion:*' file-sort time          # sort by last-modified time
+zstyle ':completion:*' group-name ''           # group by completion type
+zstyle ':completion:*' menu select=2           # use menu selection if there are at least 2 possibilities
+
+# ignore patterns for directories:
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)\.git' '(|*/)CVS' '(|*/)\.svn' '*\~' '*\.bak' '*\.swp'
+# use ls colors in file completion menus:
+zstyle ':completion:*:(all-|)files' list-colors ${LS_COLORS}
+
+# ignore zsh-internal functions:
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+# prettier process lists:
+zstyle ':completion:*:processes' list-colors "=(#b) #([0-9]#) #([^ ]#) #([^ ]#)*=$color[default]=$color[blue]=$color[grey]=$color[yellow]"
+
+# colorize host lists by network:
+zstyle ':completion:*:hosts' list-colors "=(#b)(*prod*)=$color[red]"      \
+                                         "=(#b)(*stage*)=$color[yellow]"  \
+                                         "=(#b)(*dev*)=$color[green]"     \
+                                         "=(#b)(*core*)=$color[magenta]"  \
+                                         "=(#b)(*xen*)=$color[blue]"      \
+                                         "=(#b)(*corpdmz*)=$color[cyan]"  \
+                                         "=(#b)(*net-mgmt*)=$color[blue]"
+
+# only complete the following usernames:
+users=(sq root squigley emerose)
+zstyle ':completion:*' users $users
+
+# pretty-ification of completion titles:
+zstyle ':completion:*:descriptions' format      "$fg_bold[blue]---[ $fg_bold[green]%d$fg_bold[blue] ]---%b"
+zstyle ':completion:*:messages'     format      "$fg_bold[blue]---[ $fg_bold[green]%d: %u$fg_bold[blue] ]---%b"
+zstyle ':completion:*:warnings'     format      "$fg_bold[blue]---[ $fg[red]%B no match$fg_bold[blue] ]---%b"
+zstyle ':completion:*'              list-prompt "$fg_bold[blue]---[ $fg[green]%p (more...)$fg_bold[blue] ]---%b"
+
+# i can't say i fully understand what this does.  the m bit makes matches be case-insensitive,
+# and the r bits have something to do with in-word matching...
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
+
+autoload -U compinit # actually load the (new-style) completion system
+compinit
+
+# vim:set filetype=zsh:

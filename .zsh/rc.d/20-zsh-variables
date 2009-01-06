@@ -1,0 +1,13 @@
+# variables which affect ZSH's behavior go here.
+# variables that are more general or user-specific go elsewhere.
+# see zshparam(1) for more.
+#
+export DIRSTACKSIZE=500           # the length of the pushd stack
+export HISTFILE="$HOME/.zhistory" # where to store the history file
+export HISTSIZE=10000             # store lots and lots of history info
+export SAVEHIST=10000             # also save lots and lots of history
+export REPORTTIME=2               # report timing for slow commands
+
+watch=(notme)                     # let me know when folks log in/out
+
+# vi:set filetype=zsh

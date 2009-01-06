@@ -1,0 +1,28 @@
+# see zshoptions(1)
+
+#   Changing Directories
+# 
+setopt auto_pushd           # cd = pushd
+setopt pushd_to_home        # pushd = pushd $HOME
+
+#   Completion
+#
+setopt list_packed          # allow completion columns to vary
+
+#   Expansion and Globbing
+#
+setopt mark_dirs            # add / to dirs when completing
+setopt extended_glob        # allow fancy globbing
+
+#   History
+#
+setopt extended_history     # add timestamps to history file
+setopt share_history        # share history between zsh instances
+
+#   Input/Output
+#
+setopt interactive_comments # allow comments at the prompt
+
+# 
+#
+# vi:set filetype=zsh

@@ -1,0 +1,75 @@
+# fancy prompting
+
+# colorize a word, including the prompt %{%} business
+# nb: this does NOT reset to default colors afterward!
+_colorize() {
+	local color="$1"
+	local text="$2"
+
+	print %{$fg[$color]%}$text
+}
+
+_reset_color() {
+  print %{$fg[default]%}
+}
+
+# display the username -- in red if we're root, green otherwise.
+_colorized_user() { 
+	if [[ $USER == "root" ]] ; then 
+		print $(_colorize red root)
+	else 
+		print $(_colorize yellow $USER)
+	fi 
+}
+
+# shorten a hostname (by stripping the last two domain components)
+_short_host() {
+  local host="$1"
+
+  print ${host%.*.*}
+}
+
+# display the short form of the hostname, colorized depending on the network.
+_colorized_host() {
+  local host=${HOST:-$HOSTNAME}
+
+	case $host in
+		*prod*)     print $(_colorize red     $(_short_host $host)) ;;
+		*stage*)    print $(_colorize yellow  $(_short_host $host)) ;;
+		*dev*)      print $(_colorize green   $(_short_host $host)) ;;
+		*core*)     print $(_colorize magenta $(_short_host $host)) ;;
+		*xen*)      print $(_colorize blue    $(_short_host $host)) ;;
+		*corpdmz*)  print $(_colorize cyan    $(_short_host $host)) ;;
+		*net-mgmt*) print $(_colorize blue    $(_short_host $host)) ;;
+		*local)     print $(_colorize green   $(_short_host $host)) ;;
+		*)          print $(_colorize default $(_short_host $host)) ;;
+	esac
+}
+
+# colorized [me@mybox] prompt
+_user_and_host() {
+  print $(_colorize blue '[')$(_colorized_user)$(_colorize blue '@')$(_colorized_host)$(_colorize blue ']')
+}
+
+# the last 3 path components, preceded by '...' if the path has been truncated
+_truncated_path() {
+  print %\(4~:$(_colorize grey '...')$(_reset_color)/:$(_reset_color)\)%3~
+}
+
+_colorized_prompt_char() {
+  print %\(!:$(_colorize magenta '#'):$(_colorize yellow \$)\)
+}
+
+_colorized_history() {
+  print $(_colorize yellow %!)
+}
+
+_possible_exit_code() {
+  print %\(0\?::$(_colorize red %\?)$(_colorize blue ':')\)
+}
+
+PROMPT="$(_user_and_host):$(_truncated_path)$(_colorized_prompt_char) "
+RPROMPT="$(_colorize blue '[')$(_possible_exit_code)$(_colorized_history)$(_colorize blue ']')$(_reset_color)"
+#PROMPT="%{$fg[blue]%}[$(_colorized_user)%{$fg[blue]%}@$(_colorized_host)%{$fg[blue]%}]%{$fg[default]%} %(4~|%{$fg[grey]%}...%{$fg[default]%}/%3~%{$fg[yellow]%}%#%{$fg[default]%} "
+#RPROMPT="%{$fg[blue]%}[%{$fg[yellow]%}%!%{$fg[blue]%}]%{$fg[default]%}"
+# vim:set filetype=zsh:
