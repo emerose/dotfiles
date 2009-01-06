@@ -81,3 +81,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
+"--------------------------------------------------------------------------
+" AutoComplPop plugin
+let g:AutoComplPop_NotEnableAtStartup = 1 " disable autocomplpop (for now)
