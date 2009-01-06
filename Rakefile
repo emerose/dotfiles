@@ -13,6 +13,6 @@ task :install do
     if File.exist?(target)
       FileUtils.mv(target, "#{target}.bak", :force => true, :secure => true, :verbose => true)
     end
-    FileUtils.cp_r(file, target, :preserve => true, :verbose => true)
+    FileUtils.cp_r(file, HOME, :preserve => true, :verbose => true)
   end
 end
