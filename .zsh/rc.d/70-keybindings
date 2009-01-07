@@ -1,10 +1,36 @@
 # keybindings for zsh
 #
-# my fingers speak emacs, but I often want vi editing power.
-# what i really want is this: http://zshwiki.org/home/zle/emacsandvikeys
-# unfortunately, that doesn't seem to be quite there yet. for
-# now, i'll survive with just emacs bindings:
+## my fingers speak emacs, but I often want vi editing power.
+## what i really want is this: http://zshwiki.org/home/zle/emacsandvikeys
+## unfortunately, that doesn't seem to be quite there yet. for
+## now, i'll survive with just emacs bindings:
+#
+#bindkey -e
+#
+#
+# update: this looks like it might work:
+# (taken from http://www.jukie.net/~bart/conf/zsh.d/S30_binds)
+bindkey -v "^[[3~" delete-char
+bindkey -v "^[[5~" backward-word
+bindkey -v "^[[6~" forward-word
 
-bindkey -e
+bindkey -v "^[[A" history-beginning-search-backward
+bindkey -v "^[[B" history-beginning-search-forward
+
+bindkey -v "^A" beginning-of-line
+bindkey -v "^E" end-of-line
+bindkey -v "^K" kill-line
+bindkey -v "^L" clear-screen
+bindkey -v "^R" history-incremental-search-backward
+bindkey -v "^U" kill-whole-line
+bindkey -v "^V" quoted-insert
+bindkey -v "^W" backward-kill-word
+
+bindkey -v "^N" down-history
+bindkey -v "^P" up-history
+
+bindkey -v "^[H" run-help
+bindkey -v "^[h" run-help
+
 
 # vim:set filetype=zsh:
