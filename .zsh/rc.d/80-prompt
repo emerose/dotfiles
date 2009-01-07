@@ -70,6 +70,6 @@ _possible_exit_code() {
 
 PROMPT="$(_user_and_host):$(_truncated_path)$(_colorized_prompt_char) "
 RPROMPT="$(_colorize blue '[')$(_possible_exit_code)$(_colorized_history)$(_colorize blue ']')$(_reset_color)"
-#PROMPT="%{$fg[blue]%}[$(_colorized_user)%{$fg[blue]%}@$(_colorized_host)%{$fg[blue]%}]%{$fg[default]%} %(4~|%{$fg[grey]%}...%{$fg[default]%}/%3~%{$fg[yellow]%}%#%{$fg[default]%} "
-#RPROMPT="%{$fg[blue]%}[%{$fg[yellow]%}%!%{$fg[blue]%}]%{$fg[default]%}"
+
+
 # vim:set filetype=zsh:
