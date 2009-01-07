@@ -1,5 +1,12 @@
 # various useful functions
 
+# use arrays of hook functions, instead of defining special
+# functions outright.  see, eg:
+# http://xanana.ucsc.edu/~wgscott/wordpress_new/wordpress/?p=12
+typeset -ga preexec_functions
+typeset -ga precmd_functions
+typeset -ga chpwd_functions
+
 # returns true if we're inside a screen session.
 # screen sets the $WINDOW variable, so that should be reliable;
 # fall back to checking $TERM just in case
@@ -23,18 +30,25 @@ set_title() {
   fi
 }
 
-# this is run before every prompt
-# right now, all it does is set the window title
-precmd() {
+# set the window title (called in precmd)
+_precmd_title() {
   set_title "$USER@${HOST:-$HOSTNAME}" "$PWD"
 }
+precmd_functions+='_precmd_title'
 
-# this is run right before zsh executes a command
-# it sets the window title to the name of the command
-preexec() {
+# set the window title to the name of the command (called in preexec)
+_preexec_title() {
   emulate -L zsh
   local -a cmd; cmd=(${(z)1})
   set_title $cmd[1]:t "$cmd[2,-1]"
 }
+preexec_functions+='_preexec_title'
 
+# returns the current git branch, if there is one
+current_git_branch() {
+  git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+
+#
 # vi:set filetype=zsh:
