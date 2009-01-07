@@ -1,0 +1,40 @@
+# various useful functions
+
+# returns true if we're inside a screen session.
+# screen sets the $WINDOW variable, so that should be reliable;
+# fall back to checking $TERM just in case
+running_in_screen() {
+  if [[ ${WINDOW:-no} == "no" && ${TERM} != "screen" ]]; then
+    return 1
+  fi
+  return 0
+}
+
+# set the xterm window title or screen hardstatus line
+set_title() {
+  if running_in_screen ; then
+    # Use these two for GNU Screen:
+    print -nR $'\033k'$1$'\033'\\\
+
+    print -nR $'\033]0;'$2$'\a'
+  elif [[ $TERM == xterm* || $TERM == rxvt* ]]; then
+    # Use this one instead for XTerms:
+    print -nR $'\033]0;'$*$'\a'
+  fi
+}
+
+# this is run before every prompt
+# right now, all it does is set the window title
+precmd() {
+  set_title "$USER@${HOST:-$HOSTNAME}" "$PWD"
+}
+
+# this is run right before zsh executes a command
+# it sets the window title to the name of the command
+preexec() {
+  emulate -L zsh
+  local -a cmd; cmd=(${(z)1})
+  set_title $cmd[1]:t "$cmd[2,-1]"
+}
+
+# vi:set filetype=zsh:

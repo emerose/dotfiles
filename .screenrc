@@ -49,7 +49,7 @@ defutf8 on
 # lots o scrollback
 defscrollback 10000
 
-hardstatus alwayslastline "%{= B}[ %{G}$LOGNAME @ %H %{B}]%{-} %=%{y}%-Lw%{= r}%n%f* %t%?(%u)%?%{-}%+Lw%= %{B}[ %{G}%l %{B}]%{-}"
+hardstatus alwayslastline "%{= B}[ %{G}$LOGNAME @ %H %{B}]%{-} %=%{y}%-Lw%{= r}%n%f* %t%? (%u)%?%?: %h%?%{-}%+Lw%= %{B}[ %{G}%l %{B}]%{-}"
 
 # start with window #1 (not 0)
 screen 1
