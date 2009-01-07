@@ -68,8 +68,15 @@ _possible_exit_code() {
   print %\(0\?::$(_colorize red %\?)$(_colorize blue ':')\)
 }
 
-PROMPT="$(_user_and_host):$(_truncated_path)$(_colorized_prompt_char) "
-RPROMPT="$(_colorize blue '[')$(_possible_exit_code)$(_colorized_history)$(_colorize blue ']')$(_reset_color)"
+_possible_git_branch() {
+  local branch=$(current_git_branch)
 
+  if [[ ${branch:-none} != "none" ]]; then
+    print $(_colorize blue '(')$(_colorize yellow "$branch")$(_colorize blue ')')
+  fi
+}
+
+PROMPT="$(_user_and_host):$(_truncated_path)$(_colorized_prompt_char) "
+RPROMPT='$(_possible_git_branch)'"$(_colorize blue '[')$(_possible_exit_code)$(_colorized_history)$(_colorize blue ']')$(_reset_color)"
 
 # vim:set filetype=zsh:

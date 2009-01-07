@@ -13,6 +13,7 @@ setopt list_packed          # allow completion columns to vary
 #
 setopt mark_dirs            # add / to dirs when completing
 setopt extended_glob        # allow fancy globbing
+setopt prompt_subst         # also do expansion within the prompt
 
 #   History
 #
@@ -25,4 +26,4 @@ setopt interactive_comments # allow comments at the prompt
 
 # 
 #
-# vi:set filetype=zsh
+# vi:set filetype=zsh:
