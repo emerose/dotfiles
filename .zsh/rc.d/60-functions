@@ -39,7 +39,11 @@ precmd_functions+='_precmd_title'
 # set the window title to the name of the command (called in preexec)
 _preexec_title() {
   emulate -L zsh
-  local -a cmd; cmd=(${(z)1})
+  local -a cmd; 
+  cmd=(${(z)1})
+  if [[ $cmd[1] == "sudo" ]] ; then 
+    shift cmd
+  fi
   set_title $cmd[1]:t "$cmd[2,-1]"
 }
 preexec_functions+='_preexec_title'
