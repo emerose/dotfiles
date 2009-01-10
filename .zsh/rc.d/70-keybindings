@@ -16,7 +16,7 @@ bindkey -v "^[[6~" forward-word
 
 # ctrl-{left,right}arrow
 bindkey -v '^[[5D' vi-backward-word 
-bindkey -v '^[[5C' vi-forward-word
+bindkey -v '^[[5C' vi-forward-word-end
 
 bindkey -v "^[[A" history-beginning-search-backward
 bindkey -v "^[[B" history-beginning-search-forward
