@@ -14,12 +14,13 @@ bindkey -v "^[[3~" delete-char
 bindkey -v "^[[5~" backward-word
 bindkey -v "^[[6~" forward-word
 
-# ctrl-{left,right}arrow
+# ctrl-{left,right} arrow
 bindkey -v '^[[5D' vi-backward-word 
 bindkey -v '^[[5C' vi-forward-word-end
 
-bindkey -v "^[[A" history-beginning-search-backward
-bindkey -v "^[[B" history-beginning-search-forward
+# {up,down} arrow
+bindkey -v "^[[A" up-history
+bindkey -v "^[[B" down-history
 
 bindkey -v "^A" beginning-of-line
 bindkey -v "^E" end-of-line
