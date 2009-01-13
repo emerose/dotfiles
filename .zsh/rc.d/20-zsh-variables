@@ -10,4 +10,4 @@ export REPORTTIME=2               # report timing for slow commands
 
 watch=(notme)                     # let me know when folks log in/out
 
-# vi:set filetype=zsh
+# vi:set filetype=zsh:
