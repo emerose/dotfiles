@@ -51,7 +51,6 @@ syntax on                          " syntax highlighing
 filetype on                        " enable filetype detection
 filetype indent on                 " enable filetype-specific indenting
 filetype plugin on                 " enable filetype-specific plugins
-set foldmethod=syntax              " fold based on syntax
 
 "---------------------------------------------------------------------------
 " key mappings:
