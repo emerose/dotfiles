@@ -1,6 +1,6 @@
 # configuration for colors and such
 
-zmodload zsh/terminfo
+zmodload -i zsh/terminfo
 autoload colors
 colors 
 

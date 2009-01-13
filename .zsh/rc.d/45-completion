@@ -1,8 +1,8 @@
 # configuration for completion stuff
 # see zcompsys(1) for details.
 #
-zmodload zsh/zutil    # includes the zstyle command, in case it's not already loaded
-zmodload zsh/complist # pretty completion listings
+zmodload -i zsh/zutil    # includes the zstyle command, in case it's not already loaded
+zmodload -i zsh/complist # pretty completion listings
 
 # which completion functions to use:
 # - _expand      -- shell-expand things before performing completion
