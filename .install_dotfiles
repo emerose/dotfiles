@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+#
+
+# where to put things:
+DEST = ARGV[0] || File.expand_path("~")
+
+# what to skip
+EXCLUDED = [ ".", "..", __FILE__, ".git", "*.swp", "*.bak", "*~" ] 
+
+# flags for rsync:
+RSYNC_FLAGS=["-vaP", "--delete"]
+
+files = []
+Dir.glob("*", File::FNM_DOTMATCH).each do |file|
+  next if EXCLUDED.inject(false) { |bool, pat| bool or File.fnmatch(pat, file, File::FNM_DOTMATCH) }
+  files << file
+end
+
+rsync_command = ["rsync"].push(*RSYNC_FLAGS).push(*files).push(DEST)
+system(*rsync_command)
+
+# vim:set filetype=ruby:
