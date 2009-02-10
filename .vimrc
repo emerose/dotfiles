@@ -57,6 +57,14 @@ filetype plugin on                 " enable filetype-specific plugins
 noremap <Space> <PageDown>         " space=pagedown
 noremap -       <PageUp>           " -=pageup
 
+" use \d to toggle the NERDTree explorer thingy
+nmap <leader>d :NERDTreeToggle<CR>
+" use \t to start the FuzzyFinder thingy
+map <leader>t :FuzzyFinderTextMate<CR>
+" use \T to toggle the taglist
+map <leader>T :TlistToggle<CR>
+ 
+
 "---------------------------------------------------------------------------
 " modelines:
 " rather preposterously, modelines in files can be abused to execute
