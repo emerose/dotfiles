@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.pp   setfiletype puppet
+autocmd BufRead,BufNewFile *.pp   set ft=puppet
