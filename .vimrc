@@ -63,6 +63,8 @@ nmap <leader>d :NERDTreeToggle<CR>
 map <leader>t :FuzzyFinderTextMate<CR>
 " use \T to toggle the taglist
 map <leader>T :TlistToggle<CR>
+" use \b to start the FuzzyFinder doodad for buffers
+map <leader>b :FuzzyFinderBuffer<CR>
  
 
 "---------------------------------------------------------------------------
