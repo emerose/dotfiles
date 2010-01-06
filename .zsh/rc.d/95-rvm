@@ -1,3 +1,6 @@
 # for the Ruby Version Manager, if it exists:
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
+if [[ `uname` = "Darwin" ]] ; then
+  if [[ -s ~/.rvm/scripts/rvm ]] ; then 
+    source ~/.rvm/scripts/rvm ; 
+  fi
+fi
