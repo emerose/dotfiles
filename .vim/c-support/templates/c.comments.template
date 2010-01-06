@@ -8,11 +8,12 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *-----------------------------------------------------------------------------*/
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.function ==
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name:  |?FUNCTION_NAME|
- *  Description:  <CURSOR>
- * =====================================================================================
+/** 
+ * @brief     <CURSOR> 
+ * @param[in] 
+ * @return
+ *
+ * 
  */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.method ==
@@ -33,42 +34,28 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-description == start ==
-/*
- * =====================================================================================
+/**
  *
- *       Filename:  |FILENAME|
+ * @file   |FILENAME|
+ * @brief  <CURSOR>
  *
- *    Description:  <CURSOR>
  *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  gcc
  *
- *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
- *        Company:  |COMPANY|
- *
- * =====================================================================================
+ * @author  |AUTHOR| <|EMAIL|>
+ * Copyright (c) 2009, All rights reserved.
  */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-description-header == start ==
-/*
- * =====================================================================================
+/**
  *
- *       Filename:  |FILENAME|
+ * @file   |FILENAME|
+ * @brief  <CURSOR>
  *
- *    Description:  <CURSOR>
  *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  gcc
  *
- *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
- *        Company:  |COMPANY|
- *
- * =====================================================================================
+ * @author  |AUTHOR| <|EMAIL|>
+ * Copyright (c) 2009; see LICENSE.txt for license details.
  */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,15 +132,15 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.keyword-bug == append ==
- /* :BUG:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+ /*! @bug |DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-compiler == append ==
  /* :COMPILER:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-todo == append ==
- /* :TODO:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+ /*! @todo |DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-tricky == append ==
  /* :TRICKY:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-warning == append ==
- /* :WARNING:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+ /*! @warning |DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-workaround == append ==
  /* :WORKAROUND:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-keyword == append ==
