@@ -100,4 +100,4 @@ let g:AutoComplPop_NotEnableAtStartup = 1 " disable autocomplpop (for now)
 autocmd BufNewFile,BufRead *.txt set nocindent   " C-style indent doesn't work for text
 autocmd BufNewFile,BufRead *.txt UniCycleOn      " Enable fancy unicode character editing
 autocmd BufNewFile,BufRead *.txt set textwidth=78 " Wrap at a reasonable margin
-autocmd BufNewFile,BufRead *.txt set formatoptions=tqan1 " Auto-wrap and format paragraphs
+autocmd BufNewFile,BufRead *.txt set formatoptions=tqn1 " Format paragraphs
