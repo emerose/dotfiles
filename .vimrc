@@ -101,3 +101,4 @@ autocmd BufNewFile,BufRead *.txt set nocindent   " C-style indent doesn't work f
 autocmd BufNewFile,BufRead *.txt UniCycleOn      " Enable fancy unicode character editing
 autocmd BufNewFile,BufRead *.txt set textwidth=78 " Wrap at a reasonable margin
 autocmd BufNewFile,BufRead *.txt set formatoptions=tqn1 " Format paragraphs
+autocmd BufNewFile,BufRead *.txt set ft=mkd      " Presume it’s markdown.
