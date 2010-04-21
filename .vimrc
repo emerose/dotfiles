@@ -28,6 +28,7 @@ set title                          " show title in console title bar
 set ttyfast                        " smoother changes
 set lazyredraw                     " don't redraw when we don't have to
 set showcmd                        " show extra command info
+set fuoptions=maxvert,maxhorz      " fullscreen should take the whole screen
 
 "---------------------------------------------------------------------------
 " window settings:
