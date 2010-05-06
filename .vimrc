@@ -28,7 +28,13 @@ set title                          " show title in console title bar
 set ttyfast                        " smoother changes
 set lazyredraw                     " don't redraw when we don't have to
 set showcmd                        " show extra command info
-set fuoptions=maxvert,maxhorz      " fullscreen should take the whole screen
+
+"---------------------------------------------------------------------------
+" Fullscreen options
+" There might well be a cleaner way of doing this.
+autocmd GUIEnter * set fuoptions=maxvert,maxhorz      " fullscreen should take the whole screen
+set guioptions-=L                  " Get rid of left scrollbar on vsplits
+set guioptions-=r                  " Get rid of right scrollbar
 
 "---------------------------------------------------------------------------
 " window settings:
