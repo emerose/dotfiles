@@ -1,3 +1,9 @@
+if [ -n "${BASHRC_ALREADY_RUN+false}" ]
+then
+  # we've been here before
+  exit
+fi
+
 # Automagic screen invocation; based on
 # http://taint.org/wk/RemoteLoginAutoScreen
 # 
@@ -22,3 +28,4 @@ then
   echo "Screen failed! continuing with normal bash startup"
 fi
 
+$BASHRC_ALREADY_RUN='true'
