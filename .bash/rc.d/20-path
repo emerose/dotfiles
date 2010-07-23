@@ -1,0 +1,42 @@
+### Path settings
+##
+# All possible paths, in reverse-order of priority
+# (ie, later paths override previous ones)
+declare -a possible_paths=('/usr/bin'
+                           '/usr/sbin'
+                           '/usr/libexec'
+                           '/usr/local/bin'
+                           '/usr/local/sbin'
+                           '/usr/local/libexec'
+                           '/opt/local/bin'
+                           '/opt/local/sbin'
+                           '/opt/local/libexec'
+                           '/usr/local/mysql/bin'
+                           '/opt/jruby/bin'
+                           '/var/lib/gems/1.9/bin' 
+                           '/var/lib/gems/1.8/bin'
+                           "$HOME/.gem/ruby/1.9/bin"
+                           "$HOME/.gem/ruby/1.8/bin"
+                           "$HOME/.cabal/bin"
+                           "$HOME/bin")
+
+# Look through the list of paths and add any that
+# exist to $PATH.  Keeps $PATH clear of cruft.
+# We also try to keep MANPATH up-to-date
+for dirname in ${possible_paths[*]}; do
+  if [ -d $dirname ]; then
+    PATH=$dirname:$PATH
+  fi
+
+  manpath=${dirname/%bin/share\/man}
+  if [ -n $manpath -a -d $manpath ]; then
+    MANPATH=$manpath:$MANPATH
+  fi
+
+  manpath=${dirname/%bin/man}
+  if [ -n $manpath -a -d $manpath ]; then
+    MANPATH=$manpath:$MANPATH
+  fi
+done
+
+# vim:set filetype=sh:

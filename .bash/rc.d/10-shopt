@@ -1,0 +1,18 @@
+### Shell Options
+##
+# If a command no longer exists, do a normal
+# path search for a replacement
+shopt -s checkhash
+
+# check window size (and reset $LINES/$COLUMNS) after each cmd
+shopt -s checkwinsize
+
+# append to history file rather than replacing it
+shopt -s histappend
+
+# allow editing of history commands before running them
+# only 70% sure I want this, but...
+shopt -s histverify
+
+
+# vim:set filetype=sh:

@@ -1,0 +1,12 @@
+### Colorization settings
+##
+# catch-all for colorizing
+export CLICOLOR="true"
+
+# GNU grep
+export GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+
+dircolors="$(type -P gdircolors dircolors | head -1)"
+eval $(dircolors)
+
+# vim:set filetype=sh:
