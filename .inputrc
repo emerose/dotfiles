@@ -1,0 +1,12 @@
+# flash, don't beep
+set bell-style visible
+# do path-completions independent of case
+set completion-ignore-case On
+# emacs-style keybindings
+set editing-mode emacs
+# expand tildes in complation
+set expand-tilde On
+# tell me what kind of file it is during completion
+set visible-stats On
+#
+
